@@ -252,7 +252,7 @@
     {
       "key": "shift",
       "type": "widerKey",
-      "code": "ShiftRight"
+      "code": "ShiftLeft"
     },
     {
       "key": "z",
@@ -299,7 +299,8 @@
     },
     {
       "key": "shift",
-      "type": "widerKey"
+      "type": "widerKey",
+      "code": "ShiftRight"
     }
   ],
   [

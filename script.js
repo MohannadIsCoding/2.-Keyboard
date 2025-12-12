@@ -33,7 +33,6 @@ const renderKeys = async () => {
           const subKeyDiv = document.createElement('div');
           subKeyDiv.classList.add('key');
           subKeyDiv.id = k.code?.toLowerCase() || key.key.toLowerCase() || '';
-          console.log(k.code);
 
           subKeyDiv.style = `${keysAttributes[key.type] || ''}`;
           subKeyDiv.innerHTML = k.sign ? `<p>${k.sign}</p><p>${k.key || ''}</p>` : `<p>${k.key || ''}</p>`;
