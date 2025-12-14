@@ -3,14 +3,16 @@ const keys = document.querySelector('.keys');
 
 let keyboardLayout = {};
 let keysAttributes = {
-  standardKey: "justify-content: center;align-items: center;text-transform: capitalize;",
+  standardKey: "justify-content: center;align-items: center;flex-grow: 0;width: 5rem;",
   wideKey: "justify-content: end;width: 3rem;",
   widerKey: "justify-content: start;align-items: start; width: 6rem;",
   spaceKey: "justify-content: center;align-items: end; width: 30%;",
   functionKey: "justify-content: end;align-items: center;font-size: 0.7rem;",
   arrowKey: "justify-content: center;align-items: center;width: 2rem;",
-  combinedArrowKey: "justify-content: center;align-items: center;width: 5rem;height:fit-content;flex-grow: 2;",
+  combinedArrowKey: "justify-content: center;align-items: center;width: 6rem;height:fit-content;flex-grow: 2;",
 }
+
+let caps = false;
 
 const getKeyboardLayout = async () => {
   const response = await fetch('./data/keyboardLayout.json');
@@ -62,20 +64,24 @@ const playClickSound = () => {
 }
 
 document.addEventListener('keydown', (event) => {
-  console.log(event);
   event.preventDefault()
   let key
-
+  if (event.key == 'CapsLock') {
+    caps = !caps;
+    keys.classList.toggle("caps");
+  }
   if (document.getElementById(event.key.toLowerCase())) key = document.getElementById(event.key.toLowerCase())
   else if (document.getElementById(event.code.toLowerCase())) key = document.getElementById(event.code.toLowerCase())
   else return
-  if (key)
+  if (key) {
     key.classList.add('active');
+
+
+  }
   // playClickSound()
 });
 document.addEventListener('keyup', (event) => {
   event.preventDefault()
-
   let key
   if (document.getElementById(event.key.toLowerCase())) key = document.getElementById(event.key.toLowerCase())
   else if (document.getElementById(event.code.toLowerCase())) key = document.getElementById(event.code.toLowerCase())
